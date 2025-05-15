@@ -18,10 +18,11 @@ class CheckLogin
     public function handle($request, Closure $next)
     {
         if (Auth::guest()) {
+            dd(Auth::user());
             return redirect()->route('login.index');
         }else{
             $check = User::where('id',Auth::user()->id)->first();
-            if ($check->level != 1) {
+            if ($check->level != 1) {   
                 return $next($request);
             }else{
                 // return $next($request);

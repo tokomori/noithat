@@ -608,7 +608,7 @@
 
                     $.ajax({
                         type: 'post',
-                        url: '{{ route('sorting.store') }}',
+                        url: "{{ route('sorting.store') }}",
                         data: {
                             category_id_array: category_id_array
                         },
@@ -639,7 +639,7 @@
 
                     $.ajax({
                         type: 'post',
-                        url: '{{ route('sorting.store') }}',
+                        url: "{{ route('sorting.store') }}",
                         data: {
                             category_id_array: category_id_array
                         },
@@ -675,7 +675,7 @@
                 }
                 $.ajax({
                     type: 'post',
-                    url: '{{ route('status.store') }}',
+                    url: "{{ route('status.store') }}",
                     data: {
                         statusss: statusss,
                         id: id,
@@ -695,7 +695,7 @@
             function loadDataCate() {
                 $.ajax({
                     type: 'post',
-                    url: '{{ route('list.store') }}',
+                    url: "{{ route('list.store') }}",
                     dataType: 'json',
                     success: function(response) {
                         $('#nestable2').html(response.data);
@@ -708,7 +708,7 @@
                     output = list.data('output');
                 $.ajax({
                     type: 'post',
-                    url: '{{ route('list.store') }}',
+                    url: "{{ route('list.store') }}",
                     data: {
                         data: list.nestable('serialize')
                     },

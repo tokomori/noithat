@@ -289,7 +289,7 @@
       // auto refresh
       setInterval(function() {
          $.ajax({
-            url : '{{route('store.table')}}',
+            url : "{{route('store.table')}}",
             method: 'POST',
             success:function(data){
                $('#auto_refresh_user_status').html(data.data);
@@ -301,7 +301,7 @@
 
       setInterval(function() {
          $.ajax({
-            url : '{{route('store.total')}}',
+            url : "{{route('store.total')}}",
             method: 'POST',
             success:function(data){
                $('.totaluser').html(data);

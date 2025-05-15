@@ -118,7 +118,7 @@
                 var _token = $('input[name="_token"]').val();
                 if (confirm('Bạn chắc chắn muốn xóa?')) {
                     $.ajax({
-                        url: '{{ route('product-gallery.store') }}',
+                        url: "{{ route('product-gallery.store') }}",
                         method: 'POST',
                         data: {
                             del_id: del_id,
@@ -141,7 +141,7 @@
                 form_data.append("up_id", up_id);
 
                 $.ajax({
-                    url: '{{ route('product-gallery.store') }}',
+                    url: "{{ route('product-gallery.store') }}",
                     method: 'POST',
                     data: form_data,
                     contentType: false,
@@ -161,7 +161,7 @@
             var pro_id = $('.pro_id').val();
 
             $.ajax({
-                url: '{{ route('product-gallery.create') }}',
+                url: "{{ route('product-gallery.create') }}",
                 method: 'get',
                 data: {
                     pro_id: pro_id,

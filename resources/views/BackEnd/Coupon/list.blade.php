@@ -302,7 +302,7 @@
                 }
                 $.ajax({
                     type: 'post',
-                    url: '{{ route('status.store') }}',
+                    url: "{{ route('status.store') }}",
                     data: {statusss:statusss,id:id,action:action},
                     success:function(response){
                         toastr.success(response.message,'Notification');
@@ -550,7 +550,7 @@
 
                 $.ajax({
                     type: 'post',
-                    url: '{{ route('remove.store') }}',
+                    url: "{{ route('remove.store') }}",
                     data: {allids:allids,action:action},
                     success:function(response){
                         if (response.status == 200) {

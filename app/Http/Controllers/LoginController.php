@@ -45,14 +45,12 @@ class LoginController extends Controller
         if(Auth::attempt($check_nickname) || Auth::attempt($check_email)){
             if (Auth::user()->level == 1) {
 
-
                 return Redirect::to(Session::get('previous_url'))->with('message', ' Hi, '.Auth::user()->name.' ');
 
                 // return redirect()->route('home')->with('message', ' Hi, '.Auth::user()->name.' ');
 
 
             }else{
-
                 return redirect()->route('dashboard.index')->with('message', ' Hi, '.Auth::user()->name.' ');
             }
         }else{

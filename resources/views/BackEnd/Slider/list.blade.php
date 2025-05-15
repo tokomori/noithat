@@ -267,7 +267,7 @@
                 }
                 $.ajax({
                     type: 'post',
-                    url: '{{ route('status.store') }}',
+                    url: "{{ route('status.store') }}",
                     data: {statusss:statusss,id:id,action:action},
                     success:function(response){
                         toastr.success(response.message,'Notification');
@@ -286,7 +286,7 @@
 
                     $.ajax({
                         type: 'post',
-                        url: '{{ route('sorting.store') }}',
+                        url: "{{ route('sorting.store') }}",
                         data: {slider_id_array:slider_id_array},
                         success:function(data){
                             $('#slider_table').DataTable().ajax.reload();

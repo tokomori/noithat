@@ -5,6 +5,8 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+z
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('frontend/images/favicon.png')}}">
@@ -19,7 +21,13 @@
     <link href="{{asset('backend/css/plugins/dataTables/datatables.min.css')}}" rel="stylesheet">
     <!-- Gritter -->
     <link href="{{asset('backend/js/plugins/gritter/jquery.gritter.css')}}" rel="stylesheet">
+
+     <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Toastr style -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     <link href="{{asset('backend/css/plugins/toastr/toastr.min.css')}}" rel="stylesheet">
 
     <link href="{{asset('backend/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
@@ -843,26 +851,30 @@
 
     <!-- Toastr script -->
     <script src="{{asset('backend/js/plugins/toastr/toastr.min.js')}}"></script>
-    <?php Session::forget('gallery_session'); ?>
+
+
+    <?php
+        Session::forget('gallery_session'); 
+    ?>
+
     <script>
-        @if(Session::get('message') || Session::get('error'))
+        @if(Session::has('message') || Session::has('error'))
         setTimeout(function() {
-            toastr.options = {
-                closeButton: true,
-                progressBar: true,
-                showMethod: 'slideDown',
-                timeOut: 4000
-            };
-            @if(Session::get('message'))
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            showMethod: 'slideDown',
+            timeOut: 4000
+        };
+        @if(Session::has('message'))
             toastr.success('{{ Session::get('message') }}', 'Notification');
-            @else
+        @else
             toastr.error('{{ Session::get('error') }}', 'Notification');
-            @endif
-
-
-        }, 1300);
         @endif
-
+    }, 1300);
+    @endif
+    </script>
+    <script>
         $(".touchspin3").TouchSpin({
             verticalbuttons: true,
             buttondown_class: 'btn btn-white',
@@ -1089,6 +1101,35 @@
         });
 
     });
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        type: 'post',
+        url: "{{ route('sorting.store') }}",
+        data: {
+            category_id_array: category_id_array
+        },
+        success: function(data) {
+            $('#load_table').DataTable().ajax.reload();
+            loadDataCate();
+            setTimeout(function() {
+                toastr.options = {
+                    closeButton: true,
+                    progressBar: true,
+                    showMethod: 'slideDown',
+                    timeout: 4000
+                };
+                toastr.success(data.message, 'Notification');
+            }, 2000);
+        }
+    });
+
+
 
 </script>
 @yield('script')

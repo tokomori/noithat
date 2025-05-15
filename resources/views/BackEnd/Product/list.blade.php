@@ -420,7 +420,7 @@
                 }
                 $.ajax({
                     type: 'post',
-                    url: '{{ route('status.store') }}',
+                    url: "{{ route('status.store') }}",
                     data: {
                         statusss: statusss,
                         id: id,
@@ -495,7 +495,7 @@
 
                 $.ajax({
                     type: 'post',
-                    url: '{{ route('remove.store') }}',
+                    url: "{{ route('remove.store') }}",
                     data: {
                         allids: allids,
                         action: action

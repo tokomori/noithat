@@ -1,17 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 Route::resource('login', 'LoginController',['only' => ['index', 'store','show','create']])->middleware('CheckUser');
 
 Route::resource('logout', 'LogoutController',['only' => ['index', 'store']]);
@@ -28,6 +19,11 @@ Route::group(['namespace'=>'FrontEnd'],function(){
 	Route::resource('cart-address-vnpay', 'VnpayController');
 	Route::resource('wishlist', 'WishlistController');
 	Route::resource('history', 'HistoryController');
+	Route::resource('forgetpass','MailController');
+	Route::post('/recoverpass','MailController@recoverpass');
+	Route::resource('reset_pass','MailController');
+	Route::post('/updatepass','MailController@updatepass');
+
 });
 
 Route::group(['namespace'=>'BackEnd'],function(){
@@ -59,3 +55,6 @@ Route::group(['namespace'=>'BackEnd'],function(){
 	});
 
 });
+
+
+

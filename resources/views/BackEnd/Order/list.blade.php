@@ -374,7 +374,7 @@
             var order_code = $('#hidden_code').val();
 
             $.ajax({
-                url : '{{route('order.store')}}',
+                url : "{{route('order.store')}}",
                 method: 'POST',
                 data:{orderddd:orderddd,order_text:order_text,order_code:order_code},
                 success:function(response){
@@ -519,7 +519,7 @@
 
             $.ajax({
                 type: 'post',
-                url: '{{ route('remove.store') }}',
+                url: "{{ route('remove.store') }}",
                 data: {allids:allids,action:action},
                 success:function(response){
                     if (response.status == 200) {

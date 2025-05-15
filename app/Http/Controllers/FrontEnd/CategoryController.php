@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
-use Cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 use App\Category;
 use App\Products;
 use Illuminate\Http\Request;

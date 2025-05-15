@@ -134,6 +134,7 @@
                     </div>
                 </div>
             </div>
+            
             <nav class="hidden-xs">
                 <div class="nav-container">
                     <div class="col-md-3 col-xs-12 col-sm-4">
@@ -180,12 +181,15 @@
                                                                                 ->take(4)
                                                                                 ->get();
                                                                         @endphp
-                                                                        <h3>{{ $item->category_name }}</h3>
+                                                                        <h3>
+                                                                            <a href="{{ route('category-product.show', $item->category_slug) }}" style="color: #333;">
+                                                                                {{ $item->category_name }}
+                                                                            </a>
+                                                                        </h3>
                                                                         <ul class="nav">
                                                                             @foreach ($childcate as $child)
                                                                                 <li>
-                                                                                    <a
-                                                                                        href="{{ route('category-product.show', $child->category_slug) }}">
+                                                                                    <a href="{{ route('category-product.show', $child->category_slug) }}">
                                                                                         <span>{{ $child->category_name }}</span>
                                                                                     </a>
                                                                                 </li>
@@ -299,7 +303,6 @@
                                         @endif
                                     @endforeach
                                 @else
-                                    {{-- Hiển thị mặc định nếu không có danh mục --}}
                                     <h3 style="font-size: 14px;">Giao hàng miễn phí trên toàn thế giới</h3>
                                     <span class="separator">/</span>
                                     <h3 style="font-size: 14px;">Đảm bảo hoàn tiền</h3>
@@ -824,6 +827,8 @@
 
             });
         </script>
+        
+
         @yield('js')
 
 </body>

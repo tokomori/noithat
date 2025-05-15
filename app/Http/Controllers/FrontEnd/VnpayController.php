@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
-use Cart;
+
 use App\City;
+use App\Coupon;
 use App\User;
 use App\Order;
 use App\Wards;
@@ -11,6 +12,8 @@ use App\Customer;
 use App\District;
 use App\OrderDetail;
 use Illuminate\Http\Request;
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;

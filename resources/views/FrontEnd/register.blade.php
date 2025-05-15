@@ -1,6 +1,6 @@
 @extends('Layout_user')
 @section('title')
-    Register
+    Đăng Nhập
 @endsection
 @section('content')
     <!-- Main Container -->
@@ -20,8 +20,9 @@
                                              quy trình thanh toán nhanh hơn, lưu trữ nhiều địa chỉ giao hàng, xem và theo dõi
                                              các đơn đặt hàng trong tài khoản của bạn và hơn thế nữa.</p>
                                         <div class="buttons-set">
-                                            <button onclick="window.location='{{ route('login.index') }}';"
-                                                class="button create-account" type="button"><span>Login</span></button>
+                                            <button onclick= "window.location='{{ route('login.index') }}'; "class="button create-account" type="button">
+                                                <span>Đăng nhập</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -39,14 +40,14 @@
                                                         value="{{ old('name_re') }}" name="name_re">
                                                 </li>
                                                 <li>
-                                                    <label for="email">User Name <span
+                                                    <label for="email">Tên đăng nhập <span
                                                             class="required">*</span></label>
                                                     <input type="text" title="Email Address"
                                                         class="input-text required-entry" id="username"
                                                         value="{{ old('username_re') }}" name="username_re">
                                                 </li>
                                                 <li>
-                                                    <label for="email">Email Address <span
+                                                    <label for="email">Địa chỉ Email <span
                                                             class="required">*</span></label>
                                                     <input type="text" title="Email Address"
                                                         class="input-text required-entry" id="email"

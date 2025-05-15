@@ -1,6 +1,6 @@
 @extends('Layout_user')
 @section('title')
-    Shopping Cart
+    Giỏ hàng
 @endsection
 @section('content')
     <div class="main-container col1-layout">
@@ -260,7 +260,7 @@
     setInterval(function(){
         $.ajax({
             type: 'get',
-            url: '{{ route('cart.create') }}',
+            url: "{{ route('cart.create') }}",
             success:function(response){
                 if(response.status == 200){
                     $('.dscoupon').attr('disabled',false);
@@ -326,7 +326,7 @@
         $(document).on('click','#empty_cart_button',function(e){
             $.ajax({
                 type: 'post',
-                url: '{{ route('cart.store') }}',
+                url: "{{ route('cart.store') }}",
                 success:function(response){
                     loadShopping();
                     loadSidebar();
@@ -337,7 +337,7 @@
         $(document).on('click','#empty_coupon_button',function(e){
             $.ajax({
                 type: 'get',
-                url: '{{ route('cart.create') }}',
+                url: "{{ route('cart.create') }}",
                 data: {action:'del'},
                 success:function(response){
                     loadShopping();

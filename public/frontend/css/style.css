@@ -51,7 +51,7 @@ Text Domain:  Linea
 
 	12a. Category boxes
 	12b. Block: Account
-	12d.  Block: Layered Navigation
+	12d. Block: Layered Navigation
 	12e. Block: Cart
 	12f. Block: Related
 	12g. Block: Compare Products
@@ -60,7 +60,7 @@ Text Domain:  Linea
 	12g. Block: Poll
 	12k. Block: Tags
 	12l. Block: Subscribe
-	12m Block: Recently Viewed
+	12m. Block: Recently Viewed
 	12n. Block: Reorder
 	12m. Block: Banner
 
@@ -81,6 +81,7 @@ Text Domain:  Linea
 18. bottom banner
 
 19. footer
+    1.buttom submit
 
 20. hot deal
 
@@ -1570,7 +1571,8 @@ nav {
 
 .mega-container {
     position: relative;
-    z-index: 100;
+    z-index: 9999;
+    overflow: visible;
 }
 
 .navleft-container {
@@ -1589,6 +1591,7 @@ nav {
     height: 64px;
     padding: 22px 24px;
 }
+
 
 .mega-menu-title:after {
     background: url(../images/top-menu-curl.png) 0px 0px no-repeat;
@@ -8710,6 +8713,76 @@ a.shop-now-btn {
 
 /*---------- 19. Footer ------------ */
 
+/* buttom submit */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10rem;
+  transition: all 0.02s;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(37, 37, 37);
+  z-index: 0;
+  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
+}
+
+.button:hover {
+  background: rgb(250, 111, 248);
+  color: rgb(33, 0, 85);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.hoverEffect {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hoverEffect div {
+  background: rgb(222, 0, 75);
+  background: linear-gradient(
+    90deg,
+    rgba(222, 0, 75, 1) 0%,
+    rgba(191, 70, 255, 1) 49%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border-radius: 40rem;
+  width: 10rem;
+  height: 10rem;
+  transition: 0.4s;
+  filter: blur(20px);
+  animation: effect infinite 3s linear;
+  opacity: 0.5;
+}
+
+.button:hover .hoverEffect div {
+  width: 8rem;
+  height: 8rem;
+}
+
+@keyframes effect {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 /* newsletter */
 
@@ -9169,6 +9242,12 @@ a.buy-theme {
     padding-bottom: 25px;
 }
 
+.address-footer{
+    font-size: 12px;
+    line-height: 35px;
+    color: #aaa;
+    font-weight: 500;
+}
 .email-footer a {
     font-size: 12px;
     line-height: 35px;
@@ -16311,8 +16390,20 @@ a.shop-now-btn {
         top: 15px;
     }
     .wrap-popup {
-        top: 63px;
-    }
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    z-index: 3000;
+    display: none;
+    pointer-events: auto; 
+    width: max-content;
+}
+
+.nav > li:hover .wrap-popup {
+    display: block; 
+}
+
     .top-cart-contain {
         float: right;
         width: 80%;

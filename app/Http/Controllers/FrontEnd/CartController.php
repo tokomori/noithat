@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
-use Cart;
+
 use App\Coupon;
 use App\Products;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 

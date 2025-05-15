@@ -11,13 +11,13 @@ use App\Category;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    public function show($id)
-{
-    $category = Category::findOrFail($id);
-    $features = explode('|', $category->features);
+//     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+//     public function show($id)
+// {
+//     $category = Category::findOrFail($id);
+//     $features = explode('|', $category->features);
 
-    return view('frontend.category-detail', compact('category', 'features'));
-}
+//     return view('frontend.category-detail', compact('category', 'features'));
+// }
 
 }

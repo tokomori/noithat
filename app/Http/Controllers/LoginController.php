@@ -7,12 +7,13 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use Brian2694\Toastr\Facades\Toastr;
 
 class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *  
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -45,12 +46,14 @@ class LoginController extends Controller
         if(Auth::attempt($check_nickname) || Auth::attempt($check_email)){
             if (Auth::user()->level == 1) {
 
+
                 return Redirect::to(Session::get('previous_url'))->with('message', ' Hi, '.Auth::user()->name.' ');
 
                 // return redirect()->route('home')->with('message', ' Hi, '.Auth::user()->name.' ');
 
 
             }else{
+
                 return redirect()->route('dashboard.index')->with('message', ' Hi, '.Auth::user()->name.' ');
             }
         }else{

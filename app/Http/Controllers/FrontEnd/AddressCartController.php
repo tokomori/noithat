@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
-use Cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 use App\City;
 use App\Order;
 use App\Wards;
@@ -14,6 +15,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator as ValidatorFacade;
+use Illuminate\Support\Facades\URL;
+
 
 class AddressCartController extends Controller
 {
@@ -85,7 +91,7 @@ class AddressCartController extends Controller
                                 $total_pre = $total+($total*0.02)-($total*($coun['coupon_number']/100));
                                 $totalPrice = $total_pre;
                             }else{
-                                $total_coupon = ($total+($total*0.02))-$copo['coupon_number'];
+                                $total_coupon = ($total+($total*0.02))-$coun['coupon_number'];
                                 $totalPrice = $total_coupon;
                             }
                         }
@@ -96,7 +102,8 @@ class AddressCartController extends Controller
                 }
                 $vnp_Locale = config('app.locale');
                 $vnp_BankCode = $request->checkout_bank;
-                $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+                $vnp_IpAddr = request()->ip();
+
 
                 $name_order = $request->checkout_name;
                 $email_order = Auth::user()->email;
@@ -175,7 +182,7 @@ class AddressCartController extends Controller
                 $customer->customer_code = $checkout_code;
                 $customer->save();
 
-                if(Session::get('cart')==true){
+                if(Cart::count() > 0){
                     foreach(Cart::content() as  $cart){
                         $order_details = new OrderDetail;
                         $order_details->order_code = $checkout_code;
@@ -196,7 +203,7 @@ class AddressCartController extends Controller
                 if (Session::get('coupon')) {
                     foreach(Session::get('coupon') as $coun){
                         $coupon_qty = Coupon::where('coupon_code',$coun['coupon_code'])->first();
-                        $coupon_qty->coupon_used = ','.Auth::id();
+                        $coupon_qty->coupon_used = $coupon_qty->coupon_used . ',' . Auth::id();
                         $coupon_qty->coupon_qty--;
                         $coupon_qty->save();
                     }
@@ -226,7 +233,7 @@ class AddressCartController extends Controller
             $customer->customer_code = $checkout_code;
             $customer->save();
 
-            if(Session::get('cart')==true){
+            if(Cart::count() > 0){
                 foreach(Cart::content() as  $cart){
                     $order_details = new OrderDetail;
                     $order_details->order_code = $checkout_code;

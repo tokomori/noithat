@@ -21,7 +21,7 @@ Route::group(['namespace'=>'FrontEnd'],function(){
 	Route::resource('history', 'HistoryController');
 	Route::resource('forgetpass','MailController');
 	Route::post('/recoverpass','MailController@recoverpass');
-	Route::resource('reset_pass','MailController');
+	Route::get('reset_pass','MailController@reset_pass');
 	Route::post('/updatepass','MailController@updatepass');
 
 });

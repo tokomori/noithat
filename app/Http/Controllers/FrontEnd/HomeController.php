@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
-use Cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Slider;
 use App\Category;
 use App\Gallery;
@@ -19,7 +19,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if(request()->ajax()){
             $data = request()->all();

@@ -38,18 +38,14 @@
             <div class="col-md-9 col-sm-8 col-xs-12 col-sm-push-4 col-md-push-3">
 
                 <!-- promotion banner -->
-                <div class="promotion-banner">
+                <!-- <div class="promotion-banner">
                     <div class="row">
                         <div class="col-lg-5 col-sm-5">
                             <a href="#"><img alt=""
                                     src="{{ asset('frontend/images/home1.jpg') }}"></a>
                         </div>
-                        <div class="col-lg-7 col-sm-7">
-                            <a href="#"><img alt=""
-                                    src="{{ asset('frontend/images/home2.jpg') }}"></a>
-                        </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="content-page">
 
                     <!-- featured category -->
@@ -57,7 +53,7 @@
                         <div class="navbar nav-menu">
                             <div class="navbar-collapse">
                                 <div class="new_title">
-                                    <h2>New Products</h2>
+                                    <h2>Sản phẩm mới</h2>
                                 </div>
                                 <ul class="nav navbar-nav">
                                     <li class="active"><a data-toggle="tab" href="#tab-0">All</a></li>
@@ -164,8 +160,7 @@
                                                                         <div class="action">
                                                                             <button class="button btn-cart add_cart"
                                                                                 type="button" title="" data-id_pro="{{ $item->product_id }}"
-                                                                                data-original-title="Add to Cart"><span>Add
-                                                                                    to Cart</span> </button>
+                                                                                data-original-title="Add to Cart"><span>Thêm vào giỏ hàng</span> </button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -176,7 +171,7 @@
                                                 </ul>
                                             </div>
                                             @else
-                                            <h4 style="text-align: center; color: #777;">Product Not Found</h4>
+                                            <h4 style="text-align: center; color: #777;">Không tìm thấy sản phẩm nào</h4>
                                             @endif
                                         </div>
                                         <!-- tab product -->
@@ -279,8 +274,7 @@
                                                                         <div class="action">
                                                                             <button class="button btn-cart add_cart"
                                                                                 type="button" title="" data-id_pro="{{ $new_pro->product_id }}"
-                                                                                data-original-title="Add to Cart"><span>Add
-                                                                                    to Cart</span> </button>
+                                                                                data-original-title="Add to Cart"><span>Thêm vào giỏ hàng</span> </button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -291,7 +285,7 @@
                                             </div>
                                             @endforeach
                                             @else
-                                            <h4 style="text-align: center; color: #777;">Product Not Found</h4>
+                                            <h4 style="text-align: center; color: #777;">Không tìm thấy sản phẩm nào</h4>
                                             @endif
                                         </div>
 
@@ -308,7 +302,7 @@
                         <div class="slider-items-products">
                             <div class="bestsell-block">
                                 <div class="block-title">
-                                    <h2>Best Sellers</h2>
+                                    <h2>Sản phẩm bán chạy</h2>
                                 </div>
                                 <div id="bestsell-slider" class="product-flexslider hidden-buttons">
                                     <div class="slider-items slider-width-col4 products-grid block-content">
@@ -395,8 +389,7 @@
                                                             <div class="action">
                                                                 <button class="button btn-cart add_cart" type="button"
                                                                     title="" data-id_pro="{{ $row->product_id }}"
-                                                                    data-original-title="Add to Cart"><span>Add
-                                                                        to Cart</span> </button>
+                                                                    data-original-title="Add to Cart"><span>Thêm vào giỏ hàng</span> </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -414,7 +407,7 @@
                     <div class="slider-items-products">
                         <div class="new-arrivals-block">
                             <div class="block-title">
-                                <h2>Featured Product</h2>
+                                <h2>Sản phẩm nổi bật</h2>
                             </div>
                             <div id="new-arrivals-slider" class="product-flexslider hidden-buttons">
                                 <div class="home-block-inner"> </div>
@@ -500,8 +493,7 @@
                                                         <div class="action">
                                                             <button class="button btn-cart add_cart" type="button"
                                                                 title="" data-id_pro="{{ $item->product_id }}"
-                                                                data-original-title="Add to Cart"><span>Add to
-                                                                    Cart</span> </button>
+                                                                data-original-title="Add to Cart"><span>Thêm vào giỏ hàng</span> </button>
                                                         </div>
                                                     </div>
                                                 </div>

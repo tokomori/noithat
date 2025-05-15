@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <article class="col-main" id="table_data">
-                        @include('FrontEnd.cate_include');
+                        @include('FrontEnd.cate_include')
                     </article>
                     <!--	///*///======    End article  ========= //*/// -->
                 </div>
@@ -204,7 +204,7 @@
 
                 $.ajax({
                     type: 'get',
-                    url: '{{ route('category-product.index') }}',
+                    url: "{{ route('category-product.index') }}",
                     data: {show:show, id:$('#hiden_id_slug').val()},
                     success:function(data){
                         $('#table_data').html(data);
@@ -212,7 +212,7 @@
                 });
             });
             $('.click_compare').click(function(){
-                window.location.href = '{{ route('wishlist.create') }}';
+                window.location.href = "{{ route('wishlist.create') }}";
             });
             $(document).on('click', '.click_clear', function(e) {
                 e.preventDefault();

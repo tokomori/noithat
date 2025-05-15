@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class LogoutController extends Controller
 {
@@ -15,6 +16,7 @@ class LogoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    use ValidatesRequests;
     public function index()
     {
         Auth::logout();

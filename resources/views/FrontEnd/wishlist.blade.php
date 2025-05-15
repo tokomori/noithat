@@ -1,6 +1,6 @@
 @extends('Layout_user')
 @section('title')
-    My Wishlist
+    Yêu thích
 @endsection
 @section('content')
     <div class="main-container col2-left-layout">

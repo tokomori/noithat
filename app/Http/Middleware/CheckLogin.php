@@ -18,7 +18,6 @@ class CheckLogin
     public function handle($request, Closure $next)
     {
         if (Auth::guest()) {
-            dd(Auth::user());
             return redirect()->route('login.index');
         }else{
             $check = User::where('id',Auth::user()->id)->first();

@@ -429,7 +429,7 @@
     function loadReview(id=""){
         $.ajax({
             type: 'get',
-            url: '{{ route('product-detail.index') }}',
+            url: "{{ route('product-detail.index') }}",
             data: {
                 id:id,
                 detail_id:$('#hiddendetal_id').val()
@@ -459,7 +459,7 @@
 
             $.ajax({
                 type: 'post',
-                url: '{{ route('cart.store') }}',
+                url: "{{ route('cart.store') }}",
                 data: {
                     qtycart:qtycart,
                     id_pro:id_pro

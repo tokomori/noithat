@@ -18,7 +18,7 @@
                                         @csrf
                                         <div class="page-title_multi">
                                            
-<h2>Gửi đến Nhiều Địa Chỉ</h2>
+                        <h2>Gửi đến Nhiều Địa Chỉ</h2>
                                         </div><br>
                                         <!--title-buttons-->
                                         <div class="addresses">
@@ -70,10 +70,11 @@
                                                         <select style="width: 100%; margin-bottom: 2%;" class="choose_cardpay" name="checkout_type_payment" id="checkout_type_payment">
                                                             <option value="">-- Chọn --</option>
                                                             <option value="Paypal">Paypal</option>
-                                                            <option value="Vnpay">Vnpay</option>
+                                                            <!-- <option value="Vnpay">Vnpay</option> -->
+                                                             <option value="Vnpay">Momo</option>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group form-list cartvnpay display">
+                                                    <!-- <div class="form-group form-list cartvnpay display">
                                                         <label class="required" for="card">Bank <em>*</em></label>
                                                         <select style="width: 100%; margin-bottom: 2%;" class="choose_cardpay" name="checkout_bank">
                                                             <option value="">-- Choose --</option>
@@ -100,7 +101,7 @@
                                                             <option value="IVB"> Ngan hang IVB</option>
                                                             <option value="VISA"> Thanh toan qua VISA/MASTER</option>
                                                         </select>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="form-group form-list">
                                                         <label class="required" for="note">Ghi chú</label>
                                                         <textarea name="checkout_note" id="checkout_note" rows="5" style="width: 100%;margin-bottom: 2%;" class="input-text required-entry" placeholder="Ghi chú"></textarea>
@@ -170,7 +171,7 @@
     setInterval(function(){
         $.ajax({
             type: 'get',
-            url: '{{ route('cart-address-vnpay.create') }}',
+            url: "{{ route('cart-address-vnpay.create') }}",
             data: {
                 checkout_name : $('#checkout_name').val(),
                 checkout_phone : $('#checkout_phone').val(),
@@ -218,7 +219,7 @@
 
                 $.ajax({
                     type: 'post',
-                    url: '{{ route('cart-address.store') }}',
+                    url: "{{ route('cart-address.store') }}",
                     data: {
                         checkout_name:checkout_name,
                         checkout_phone:checkout_phone,
@@ -260,7 +261,7 @@
 
             $.ajax({
                 type: 'get',
-                url : '{{route('cart-address.create')}}',
+                url : "{{route('cart-address.create')}}",
                 data:{action:action,ma_id:ma_id},
                 success:function(data){
                    $('#'+result).html(data);

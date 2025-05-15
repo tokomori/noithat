@@ -1,10 +1,7 @@
 <div class="toolbar">
     <div class="display-product-option">
         <div class="sorter">
-            <div class="view-mode">
-                <span title="Grid" class="button button-active button-grid">&nbsp;</span>
-                <a href="#tablist" title="List" class="button-list">&nbsp;</a>
-            </div>
+            
         </div>
         <div class="pages">
             {!! $categoryProduct->render('FrontEnd.paginatoin') !!}
@@ -71,7 +68,7 @@
                                                 @php
                                                     $check_wish = App\Wishlist::where('user_id', Auth::id())
                                                         ->where('pro_id', $cate_pro->product_id)
-                                                        ->first();
+                                                        ->first()
                                                 @endphp
                                                 @if ($check_wish)
                                                     <a class="link-wishlist add_Wishlist wishcolor"
@@ -131,8 +128,7 @@
                                     <div class="action">
                                         <button class="button btn-cart add_cart" type="button"
                                             title="" data-id_pro="{{ $cate_pro->product_id }}"
-                                            data-original-title="Thêm vào giỏ hàng"><span>Thêm vào
-                                                giỏ hàng</span></button>
+                                            data-original-title="Thêm vào giỏ hàng"><span>Thêm vào giỏ hàng</span></button>
                                     </div>
                                 </div>
                             </div>
@@ -143,8 +139,8 @@
         </ul>
     @else
         <h3
-            style="text-align: center; color: #eaeaea; font-weight: bold; text-shadow: 1px 1px #b3afaf, -1px -1px #cac6c6;">
-            Product Not Found</h3>
+            style="text-align: center; color:rgb(70, 69, 69); font-weight: bold; text-shadow: 1px 1pxrgb(0, 0, 0), -1px -1pxrgb(0, 0, 0);">
+            Không tìm thấy sản phẩm</h3>
     @endif
 </div>
 @if (count($categoryProduct) > 0)

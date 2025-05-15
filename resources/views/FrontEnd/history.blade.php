@@ -154,7 +154,7 @@
     function loadHistory(){
         $.ajax({
             type: 'get',
-            url: '{{ route('history.index') }}',
+            url: "{{ route('history.index') }}",
             dataType: 'json',
             success:function(response){
                 $('#loadhistory').html(response.data);
@@ -217,7 +217,7 @@
 
             $.ajax({
                 type: 'post',
-                url: '{{ route('history.store') }}',
+                url: "{{ route('history.store') }}",
                 data: {
                     id_pro:id_pro,
                     id_order:id_order,
